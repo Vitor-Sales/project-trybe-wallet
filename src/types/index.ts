@@ -1,3 +1,6 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+
 export type ReduxState = {
   user: {
     email: string,
@@ -9,3 +12,16 @@ export type ReduxState = {
     idToEdit: number, // valor numérico que armazena o id da despesa que está sendo editada
   }
 };
+
+export type Form = {
+  formState: {
+    id: number,
+    value: string,
+    description: string,
+    currency: string,
+    method: string,
+    tag: string,
+  }
+};
+
+export type Dispatch = ThunkDispatch<ReduxState, null, AnyAction>;

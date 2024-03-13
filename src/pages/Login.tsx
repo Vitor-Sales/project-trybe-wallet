@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { sendEmail } from '../redux/actions';
+import { LoginCard } from './styles';
 
 function Login() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <LoginCard>
       <h1>TrybeWallet</h1>
       <form
         onSubmit={ (e) => {
@@ -27,13 +28,17 @@ function Login() {
           navigate('/carteira');
         } }
       >
+        <label htmlFor="email">Email: </label>
         <input
+          id="email"
           type="email"
           data-testid="email-input"
           value={ emailValue }
           onChange={ (e) => handleEmail(e.target.value) }
         />
+        <label htmlFor="senha">Senha: </label>
         <input
+          id="senha"
           type="password"
           data-testid="password-input"
           minLength={ 6 }
@@ -50,7 +55,7 @@ function Login() {
           Entrar
         </button>
       </form>
-    </div>
+    </LoginCard>
   );
 }
 
