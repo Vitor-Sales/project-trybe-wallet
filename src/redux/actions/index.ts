@@ -66,20 +66,9 @@ export const conversionThunk = (formState: Form) => {
   };
 };
 
-// export const conversionThunk = (currency: string, formState: Form) => {
-//   return async (dispatch: Dispatch) => {
-//     const { wallet: { expenses } } = useSelector((state: ReduxState) => state);
-//     dispatch(startRequest);
-//     try {
-//       const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-//       const data = await response.json();
-//       const conversionrate = data[currency];
-//       const newFormState = {
-//         ...formState, currencyInfo: conversionrate, id: expenses.length,
-//       };
-//       dispatch(successConversionRequest(newFormState));
-//     } catch (error) {
-//       dispatch(failRequest(error));
-//     }
-//   };
-// };
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+
+export const deleteExpense = (id: number | string) => ({
+  type: DELETE_EXPENSE,
+  payload: id,
+});
