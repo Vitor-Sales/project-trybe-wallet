@@ -6,8 +6,8 @@ import App from '../../App';
 describe('Testes da página Home', () => {
   it('1- Ao renderizar a página Home, se existe um campo para o email, um para a senha e um botão com o texto "Entrar"', () => {
     renderWithRouterAndRedux(<App />);
-    const emailInput = screen.getByLabelText('Email:');
-    const passwordInput = screen.getByLabelText('Senha:');
+    const emailInput = screen.getByLabelText('E-mail');
+    const passwordInput = screen.getByLabelText('Senha');
     const submitBtn = screen.getByRole('button', { name: 'Entrar' });
 
     expect(emailInput).toBeInTheDocument();

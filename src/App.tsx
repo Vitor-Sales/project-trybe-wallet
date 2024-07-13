@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
 import GlobalStyle from './styles';
+import './App.css';
 
 function App() {
   return (

@@ -1,5 +1,9 @@
 import { useSelector } from 'react-redux';
 import { ReduxState } from '../types';
+import { HeaderTag } from './styles';
+import logo from '../public/logo.svg';
+import profileImg from '../public/profile.svg';
+import coinImg from '../public/coin.svg';
 
 function Header() {
   const { user: { email } } = useSelector((state: ReduxState) => state);
@@ -18,11 +22,21 @@ function Header() {
   });
 
   return (
-    <div>
-      <p data-testid="email-field">{email}</p>
-      <p data-testid="total-field">{totalExpense.toFixed(2)}</p>
-      <p data-testid="header-currency-field">BRL</p>
-    </div>
+    <HeaderTag>
+      <h1><img src={ logo } alt="" /></h1>
+      <div>
+        <img src={ coinImg } alt="" />
+        <p data-testid="header-currency-field">
+          <span>Total de despesas:</span>
+          {' '}
+        </p>
+        <p data-testid="total-field">{`${totalExpense.toFixed(2)} BRL`}</p>
+      </div>
+      <div>
+        <img src={ profileImg } alt="" />
+        <p data-testid="email-field">{email}</p>
+      </div>
+    </HeaderTag>
   );
 }
 

@@ -1,13 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ReduxState } from '../types';
 import { deleteExpense } from '../redux/actions';
+import { TableContainer } from './styles';
+import trashIcon from '../public/trash.svg';
+import editIcon from '../public/edit.svg';
 
 function Table() {
   const { wallet: { expenses } } = useSelector((state:ReduxState) => state);
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <TableContainer>
       <table>
         <thead>
           <tr>
@@ -37,7 +40,10 @@ function Table() {
               </td>
               <td>Real</td>
               <td>
-                <button>Editar</button>
+                <button>
+                  {' '}
+                  <img src={ editIcon } alt="" />
+                </button>
                 <button
                   data-testid="delete-btn"
                   onClick={ (e) => {
@@ -45,7 +51,8 @@ function Table() {
                     dispatch(deleteExpense(expense.id));
                   } }
                 >
-                  Excluir
+                  {' '}
+                  <img src={ trashIcon } alt="" />
                 </button>
               </td>
 
@@ -53,7 +60,7 @@ function Table() {
           ))}
         </tbody>
       </table>
-    </div>
+    </TableContainer>
   );
 }
 
